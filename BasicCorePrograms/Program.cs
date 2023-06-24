@@ -10,17 +10,21 @@ namespace BasicCorePrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number of times to flip the coin:");
-            int numFlips = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the year (4 digits):");
+            int year = int.Parse(Console.ReadLine());
 
-            if (numFlips <= 0)
+            if (year < 1000 || year > 9999)
             {
-                Console.WriteLine("Invalid input. Number of flips must be a positive integer.");
+                Console.WriteLine("Invalid input. Year must be a 4-digit number.");
                 return;
             }
 
-            CoinFlip coinFlip = new CoinFlip(numFlips);
-            coinFlip.FlipCoin();
+            LeapYear leapYear = new LeapYear(year);
+
+            if (leapYear.IsLeapYear())
+                Console.WriteLine(year + " is a Leap Year.");
+            else
+                Console.WriteLine(year + " is not a Leap Year.");
         }
     }
 }
