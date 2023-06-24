@@ -10,21 +10,17 @@ namespace BasicCorePrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the year (4 digits):");
-            int year = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the power value (0 to 30):");
+            int power = int.Parse(Console.ReadLine());
 
-            if (year < 1000 || year > 9999)
+            if (power < 0 || power > 30)
             {
-                Console.WriteLine("Invalid input. Year must be a 4-digit number.");
+                Console.WriteLine("Invalid input. Power value must be between 0 and 30.");
                 return;
             }
 
-            LeapYear leapYear = new LeapYear(year);
-
-            if (leapYear.IsLeapYear())
-                Console.WriteLine(year + " is a Leap Year.");
-            else
-                Console.WriteLine(year + " is not a Leap Year.");
+            PowerOfTwo powerOf2 = new PowerOfTwo(power);
+            powerOf2.GenerateTable();
         }
     }
 }
