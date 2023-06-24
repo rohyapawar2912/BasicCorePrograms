@@ -10,17 +10,19 @@ namespace BasicCorePrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the power value (0 to 30):");
-            int power = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the harmonic value (N):");
+            int value = int.Parse(Console.ReadLine());
 
-            if (power < 0 || power > 30)
+            if (value <= 0)
             {
-                Console.WriteLine("Invalid input. Power value must be between 0 and 30.");
+                Console.WriteLine("Invalid input. Harmonic value (N) must be a positive integer.");
                 return;
             }
 
-            PowerOfTwo powerOf2 = new PowerOfTwo(power);
-            powerOf2.GenerateTable();
+            HarmonicNumber harmonicNumber = new HarmonicNumber(value);
+            double result = harmonicNumber.CalculateHarmonicNumber();
+
+            Console.WriteLine("The Nth Harmonic Value: " + result);
         }
     }
 }
