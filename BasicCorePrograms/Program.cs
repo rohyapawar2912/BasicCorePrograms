@@ -10,19 +10,17 @@ namespace BasicCorePrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the harmonic value (N):");
-            int value = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the number:");
+            int number = int.Parse(Console.ReadLine());
 
-            if (value <= 0)
+            if (number <= 1)
             {
-                Console.WriteLine("Invalid input. Harmonic value (N) must be a positive integer.");
+                Console.WriteLine("Invalid input. Number must be greater than 1.");
                 return;
             }
 
-            HarmonicNumber harmonicNumber = new HarmonicNumber(value);
-            double result = harmonicNumber.CalculateHarmonicNumber();
-
-            Console.WriteLine("The Nth Harmonic Value: " + result);
+            Factor factors = new Factor(number);
+            factors.ComputePrimeFactors();
         }
     }
 }
